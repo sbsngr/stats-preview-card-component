@@ -7,7 +7,7 @@
   /* NEUTRAL */
   --main-heading: hsl(0, 0%, 100%);
   --main-stats: hsl(0, 0%, 100%);
-  --main-p: hsla(0, 0%, 100%, 0.75);
+  --main-p: hsla(0, 0%, 100%, 0.6);
   --stat-headings: hsla(0, 0%, 100%, 0.6);
 
   font-size: 15px;
@@ -22,21 +22,79 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--main-bg);
-  color: white;
+
+  display: grid;
+  place-items: center;
+
+  height: 100vh;
 }
 
 /* MOBILE @375px*/
 
-.container {
-  height: 100vh;
-  max-width: 375px;
-  margin: 5em 1.5em;
-
+.card {
   background-color: var(--card-bg);
-  border-radius: 0.5em;
 
-  display: flex;
-  flex-direction: column;
+  display: grid;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 15em 20em 20em;
+  grid-template-areas: "image" "text" "stats";
+
+  margin: 5em 1em;
+  border-radius: 0.5em;
+  text-align: center;
+
+  max-width: 350px;
+}
+
+.card-image {
+  grid-area: image;
+
+  background: linear-gradient(rgba(170, 92, 219, 0.5), rgba(170, 92, 219, 0.5)),
+    url("/images/image-header-mobile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.card-text {
+  grid-area: text;
+  padding: 2em;
+}
+
+h1 {
+  color: var(--main-heading);
+  letter-spacing: 0.02em;
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+p.desc {
+  color: var(--main-p);
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.card-stats {
+  grid-area: stats;
+}
+
+.figure {
+  color: var(--main-stats);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-bottom: 0.4em;
+}
+
+.type {
+  color: var(--stat-headings);
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
 }
 
 /* Desktop @1440px*/
